@@ -18,20 +18,10 @@
   }
 }
 
-@media screen and (max-width: 1023px) {
-  .catalog {
-    grid-template-columns: repeat(3, 200px);
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .catalog {
-    grid-template-columns: repeat(2, 200px);
-  }
-}
-
-@media screen and (max-width: 487px) {
-  .catalog {
-    grid-template-columns: repeat(1, 200px);
+@each $breakpoint, $number in $breakpoints {
+  @media screen and (max-width: $breakpoint) {
+    .catalog {
+      grid-template-columns: repeat(#{$number}, 200px);
+    }
   }
 }
